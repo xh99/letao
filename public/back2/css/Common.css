@@ -1,0 +1,117 @@
+a:link,
+a:valid,
+a:hover,
+a:active {
+    text-decoration: none
+}
+html,body {
+    height: 100%;
+    width: 100%;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.let_sidebar {
+    width: 180px;
+    height: 100%;
+    background-color: #222D32;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: 1s;
+}
+.let_sidebar.active{
+    left: -180px;
+}
+.let_box {
+    width: 100%;
+    height: 1000px;
+    padding-left: 180px;
+    padding-top: 50px;
+    transition: 1s;
+}
+.let_box.active {
+    padding-left: 0px;
+}
+.let_top {
+    width: 100%;
+    height: 50px;
+    background-color: #367FA9;
+}
+.let_top a {
+    font-size: 24px;
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 50px;
+}
+.let_center {
+    width: 180px;
+    height: 180px;
+    padding-top: 30px;
+}
+.let_center img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.let_center p {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+.let_nav li a{
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    padding-left: 40px;
+    border-left: 3px solid transparent;
+}
+.let_nav li a.nav{
+    border-left: 3px solid #006699;
+    background-color: #1D1F21;
+}
+.let_nav li .icon_left {
+    margin-right: 5px
+}
+
+.let_above {
+    width: 100%;
+    padding-left: 180px;
+    height: 50px;
+    background-color: #3C8DBC;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 1s;
+}
+.let_above.active{
+    padding-left: 0
+}
+.let_above a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+}
+.breadcrumb {
+    margin-top: 20px;
+}
+.let_nav .let_slide a{
+    padding-left: 60px;
+}
+.modal-body {
+    color: #A94442;
+}
