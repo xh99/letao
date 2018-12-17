@@ -1,0 +1,120 @@
+html,body {
+    width: 100%;
+    height: 100%;
+}
+a:link,
+a:valid,
+a:hover,
+a:active{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.let_left {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #222D32;
+    z-index:999;
+    transition: 1s;
+}
+.let_left.active {
+    left: -180px
+}
+.let_statu {
+    width: 100%;
+    height: 50px;
+    background-color: #367FA9
+}
+.let_statu a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    line-height: 50px
+}
+.let_box {
+    width: 180px;
+    height: 180px;
+    padding-top: 30px;
+    
+}
+.let_box img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto
+}
+.let_box p {
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center
+}
+.let_nav a {
+    display: block;
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+    padding-left: 40px;
+    border-left: 3px solid transparent;
+}
+.let_nav a .icon_left {
+    margin-right: 5px;
+}
+/* 添加类名有蓝色边框  背景高亮*/
+.let_nav a.active{
+    border-left: 3px solid #006699;
+    background-color: #1D1F21
+}
+.let_nav .child a {
+    padding-left: 60px;
+}
+.let_right {
+    width: 100%;
+    height: 1000px;
+    padding-left: 180px;
+    padding-top: 50px;
+    transition: 1s
+}
+.let_right.active{
+    padding-left: 0px;
+}
+.let_title {
+    width: 100%;
+    height: 50px;
+    background-color: #3C8DBC;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 180px;
+    transition: 1s;
+    z-index: 998;
+}
+.let_title.active{
+    padding-left: 0px;
+}
+.let_title a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+}
+.breadcrumb {
+    margin-top: 20px
+}
+.modal-body {
+    color: #A94442
+}
