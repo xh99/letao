@@ -106,6 +106,7 @@
                 </div>
                 <form id="form">
                     <div class="modal-body">
+                        <!-- 表单校验依赖于form-group 所以都要在每一项外面套一个 -->
                         <div class="form-group">
                             <div class="dropdown">
                                 <button class="btn btn-default fg" data-toggle="dropdown">
@@ -116,9 +117,10 @@
                                     
                                 </ul>
                             </div>
+                            <input type="hidden" name="categoryId">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="请输入二级分类">
+                            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
                         </div>
                         <div class="form-group">
                             <label for="fileupload" class="btn btn-default">上传图片</label>
@@ -126,11 +128,13 @@
                         </div>
                         <div class="form-group">
                             <img src="./images/none.png" style="width: 100px;" id="magse">
+                            <input type="hidden" name="brandLogo">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary append">添加</button>
+                        <!-- <button type="" class="btn btn-primary append">添加</button> -->
+                        <input type="submit" class="btn btn-primary append">
                     </div>
                 </form>
             </div>

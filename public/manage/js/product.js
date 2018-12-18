@@ -101,6 +101,7 @@ $(function() {
 
       // 新得到的图片对象, 应该推到数组的最前面    push pop shift unshift
       picArr.unshift( picObj );
+      console.log(picArr);
       // 新的图片, 应该添加到 imgBox 最前面去
       $('#imgBox').prepend('<img src="'+ picAddr +'" width="100">');
 

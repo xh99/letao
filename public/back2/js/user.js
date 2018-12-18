@@ -64,6 +64,12 @@ $(function () {
         var str = $(this).text();
         // console.log(str);
         $('.fg .stre').text(str)
+
+        //把获取到的内容再赋值给隐藏域
+        var cat = $(this).data('id')
+        $('[name="categoryId"]').val(cat);
+        //把验证状态修改
+        $("#form").data('bootstrapValidator').updateStatus('categoryId','VALID')
     })
 
 
@@ -76,42 +82,85 @@ $(function () {
             //   console.log(data.result.picAddr);
             var url = data.result.picAddr
             $('#magse').attr('src', url)
+
+            //把路径也给隐藏域
+            $('[name="brandLogo"]').val(url)
+
+            //修改状态图标
+            $("#form").data('bootstrapValidator').updateStatus('brandLogo','VALID')
         }
     });
 
 
-    // //表单校验
-    // $('#form').bootstrapValidator({
-    //     //2. 指定校验时的图标显示，默认是bootstrap风格
-    //     feedbackIcons: {
-    //         valid: 'glyphicon glyphicon-ok',
-    //         invalid: 'glyphicon glyphicon-remove',
-    //         validating: 'glyphicon glyphicon-refresh'
-    //     },
-    //     //3. 指定校验字段
-    //     fields: {
-    //         //校验用户名，对应name表单的name属性
-    //         username: {
-    //             validators: {
-    //                 //不能为空
-    //                 notEmpty: {
-    //                     message: '用户名不能为空'
-    //                 },
-    //                 //长度校验
-    //                 stringLength: {
-    //                     min: 6,
-    //                     max: 30,
-    //                     message: '用户名长度必须在6到30之间'
-    //                 },
-    //                 //正则校验
-    //                 regexp: {
-    //                     regexp: /^[a-zA-Z0-9_\.]+$/,
-    //                     message: '用户名由数字字母下划线和.组成'
-    //                 }
-    //             }
-    //         },
-    //     }
+    //校验
+    $('#form').bootstrapValidator({
+        //1. 指定不校验的类型，默认为[':disabled', ':hidden', ':not(:visible)'],可以不设置
+         excluded: [],
+          //2. 指定校验时的图标显示，默认是bootstrap风格
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+         //3. 指定校验字段
+        fields: {
+            //校验用户名，对应name表单的name属性
+            categoryId: {
+                validators: {
+                    //不能为空
+                    notEmpty: {
+                        message: '请选择一级分类'
+                    }
+                }
+            },
+            brandName: {
+                validators: {
+                    //不能为空
+                    notEmpty: {
+                        message: '请输入二级分类'
+                    }
+                }
+            },
+            brandLogo: {
+                validators: {
+                    //不能为空
+                    notEmpty: {
+                        message: '请上传图片'
+                    }
+                }
+            }
+        }
+    })
 
-    // })
-    
+
+    //发送请求
+    $("#form").on("success.form.bv", function( e ) {
+        // 阻止默认的提交
+        e.preventDefault();
+        $.ajax({
+            type:'post',
+            url:'/category/addSecondCategory',
+            data: $('#form').serialize(),
+            dataType:"json",
+            success:function(res){
+                // console.log(res);
+                if(res.success){
+                    //重新渲染第一页
+                    currentPage = 1
+                    render()
+                    //关闭模态框
+                    $("#userModal").modal('hide');
+                    //清空表单
+                    $("#form").data('bootstrapValidator').resetForm(true)
+
+                    //手动清除按钮和图片
+                    $('.fg .stre').text("请选择一级分类")
+
+                    $('#magse').attr('src','./images/none.png');
+                }
+            }
+        })
+        // console.log($('#form').serialize());
+      })
+
 })
